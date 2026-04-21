@@ -72,38 +72,93 @@
 
   <!-- ═══════════════════════════════════════════
        HERO / ABOUT
+       Layout: two columns on desktop (lg+).
+         Left  — brand headline + tagline + CTA button + sneaker image.
+         Right — three feature cards stacked vertically.
+       On mobile both columns stack; cards appear after the CTA.
   ════════════════════════════════════════════ -->
   <section id="about" class="section-hero">
-    <!-- Decorative blobs -->
+
+    <!-- Ambient glow blobs (purely decorative, hidden from assistive tech) -->
     <div class="blob blob-1" aria-hidden="true"></div>
     <div class="blob blob-2" aria-hidden="true"></div>
 
     <div class="container-fluid px-4 px-lg-5">
-      <div class="row align-items-center min-vh-100">
+      <div class="row align-items-center min-vh-100 py-section-hero">
 
+        <!-- ── LEFT COLUMN: headline + CTA + sneaker image ── -->
         <div class="col-lg-6 hero-content fade-up">
+
+          <!-- Service category label -->
           <p class="overline">Профессиональная чистка</p>
+
+          <!-- Main headline — large display type, accent on keyword -->
           <h1 class="hero-title">
-            чистка<br>
-            <span class="accent">кроссовок</span>
+            Чистка и уход<br>
+            за <span class="accent">кроссовками</span>
           </h1>
+
+          <!-- Short supporting tagline -->
           <p class="hero-sub">
             Возвращаем вашим кроссовкам первоначальный вид.<br>
             Используем только профессиональные средства.
           </p>
-          <div class="d-flex align-items-center gap-3 mt-4">
-            <a href="#order" class="btn btn-accent btn-lg">Заказать</a>
+
+          <!-- Primary CTA -->
+          <div class="d-flex align-items-center gap-3 mt-4 mb-5">
+            <a href="#order" class="btn btn-accent btn-lg">Заказать чистку</a>
             <a href="#examples" class="btn btn-ghost btn-lg">Примеры работ</a>
           </div>
         </div>
 
-        <div class="col-lg-6 hero-image-col fade-up">
-          <!-- Hero image placeholder -->
-          <div class="hero-img-placeholder">
-            <i class="bi bi-image"></i>
-            <span>Фото кроссовок</span>
+        <!-- ── RIGHT COLUMN: feature cards ── -->
+        <!-- On desktop they sit beside the headline; on mobile they stack below -->
+        <div class="col-lg-6 hero-feature-col fade-up">
+          <div class="hero-features d-flex flex-column gap-3">
+
+            <!-- Feature card 1: free delivery -->
+            <div class="feature-card">
+              <div class="feature-icon" aria-hidden="true">
+                <i class="bi bi-truck"></i>
+              </div>
+              <div class="feature-body">
+                <h3 class="feature-title">Бесплатная доставка</h3>
+                <p class="feature-desc">
+                  Заберём и доставим обувь бесплатно в день заказа в пределах Минска.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature card 2: on-time turnaround -->
+            <div class="feature-card">
+              <div class="feature-icon" aria-hidden="true">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <div class="feature-body">
+                <h3 class="feature-title">Точно в срок</h3>
+                <p class="feature-desc">
+                  Работа занимает от 1 до 5 дней.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature card 3: fair pricing -->
+            <div class="feature-card">
+              <div class="feature-icon" aria-hidden="true">
+                <i class="bi bi-currency-dollar"></i>
+              </div>
+              <div class="feature-body">
+                <h3 class="feature-title">Демократичные цены</h3>
+                <p class="feature-desc">
+                  Одни из самых низких цен в Беларуси. Стоимость фиксированная и не зависит
+                  от степени загрязнения. Оплата после выполнения работы.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
+        <!-- /right column -->
 
       </div>
     </div>
