@@ -30,6 +30,23 @@
           <span class="brand-primary">Sneaker</span><span class="brand-accent">Clean</span>
         </a>
 
+        <!-- Контакты: телефон + соцсети (всегда видны; на мобайле — рядом с тогглером) -->
+        <div class="nav-contacts d-flex align-items-center gap-2 ms-auto ms-lg-0 me-2 me-lg-0">
+          <!-- Телефон -->
+          <a href="tel:+375336867655" class="nav-phone d-flex align-items-center gap-1 text-decoration-none">
+            <i class="bi bi-telephone-fill"></i>
+            <span>+375 (33) 686-76-55</span>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/sneakerclean" class="nav-social" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <!-- Telegram -->
+          <a href="https://t.me/sneakerclean" class="nav-social" aria-label="Telegram" target="_blank" rel="noopener">
+            <i class="bi bi-telegram"></i>
+          </a>
+        </div>
+
         <!-- Mobile toggle -->
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -39,14 +56,13 @@
           <span class="toggler-icon"></span>
         </button>
 
-        <!-- Nav links -->
+        <!-- Nav links (коллапс на мобайле) -->
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav mx-auto gap-lg-4">
             <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
             <li class="nav-item"><a class="nav-link" href="#examples">Примеры работ</a></li>
             <li class="nav-item"><a class="nav-link" href="#order">Заказать</a></li>
           </ul>
-          <a href="#order" class="btn btn-accent ms-lg-4">Заказать чистку</a>
         </div>
 
       </div>
