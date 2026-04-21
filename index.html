@@ -167,42 +167,82 @@
 
   <!-- ═══════════════════════════════════════════
        EXAMPLES
+       Multi-card slider: shows 3 cards on desktop,
+       2 on tablet, 1 on mobile. Left/right arrows
+       step through images; auto-advances every 2 s
+       and pauses while the user hovers over the track.
+       All 7 images (case1–7.jpg) are in images/.
   ════════════════════════════════════════════ -->
   <section id="examples" class="section-examples py-section">
     <div class="container-fluid px-4 px-lg-5">
 
+      <!-- Section header -->
       <div class="section-header fade-up">
         <p class="overline">Наши работы</p>
         <h2 class="section-title">Примеры <span class="accent">до и после</span></h2>
       </div>
 
-      <div class="row g-4 mt-4">
-        <!-- Placeholder cards — content added later -->
-        <div class="col-sm-6 col-lg-4 fade-up">
-          <div class="example-card">
-            <div class="example-img-placeholder">
-              <i class="bi bi-image"></i>
+      <!-- Slider shell: arrow + track + arrow, all in one flex row -->
+      <div class="ex-slider fade-up" id="exSlider">
+
+        <!-- Previous arrow -->
+        <button class="ex-arrow ex-arrow-prev" id="exPrev" aria-label="Предыдущий">
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <!-- Viewport — overflow:hidden clips cards outside the visible area -->
+        <div class="ex-viewport">
+          <!-- Track — translated left/right via JS to reveal different cards -->
+          <div class="ex-track" id="exTrack">
+
+            <!-- Each card: image fills the card, label below -->
+            <div class="ex-card">
+              <img src="images/case1.jpg" alt="Пример работы 1" class="ex-img" loading="eager">
+              <div class="ex-label">Пример работы 1</div>
             </div>
-            <div class="example-label">Пример работы 1</div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 fade-up">
-          <div class="example-card">
-            <div class="example-img-placeholder">
-              <i class="bi bi-image"></i>
+
+            <div class="ex-card">
+              <img src="images/case2.jpg" alt="Пример работы 2" class="ex-img" loading="lazy">
+              <div class="ex-label">Пример работы 2</div>
             </div>
-            <div class="example-label">Пример работы 2</div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 fade-up">
-          <div class="example-card">
-            <div class="example-img-placeholder">
-              <i class="bi bi-image"></i>
+
+            <div class="ex-card">
+              <img src="images/case3.jpg" alt="Пример работы 3" class="ex-img" loading="lazy">
+              <div class="ex-label">Пример работы 3</div>
             </div>
-            <div class="example-label">Пример работы 3</div>
-          </div>
-        </div>
-      </div>
+
+            <div class="ex-card">
+              <img src="images/case4.jpg" alt="Пример работы 4" class="ex-img" loading="lazy">
+              <div class="ex-label">Пример работы 4</div>
+            </div>
+
+            <div class="ex-card">
+              <img src="images/case5.jpg" alt="Пример работы 5" class="ex-img" loading="lazy">
+              <div class="ex-label">Пример работы 5</div>
+            </div>
+
+            <div class="ex-card">
+              <img src="images/case6.jpg" alt="Пример работы 6" class="ex-img" loading="lazy">
+              <div class="ex-label">Пример работы 6</div>
+            </div>
+
+            <div class="ex-card">
+              <img src="images/case7.jpg" alt="Пример работы 7" class="ex-img" loading="lazy">
+              <div class="ex-label">Пример работы 7</div>
+            </div>
+
+          </div><!-- /ex-track -->
+        </div><!-- /ex-viewport -->
+
+        <!-- Next arrow -->
+        <button class="ex-arrow ex-arrow-next" id="exNext" aria-label="Следующий">
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </button>
+
+      </div><!-- /ex-slider -->
+
+      <!-- Dot indicators — rendered by JS into this container -->
+      <div class="ex-dots" id="exDots" aria-hidden="true"></div>
 
     </div>
   </section>
