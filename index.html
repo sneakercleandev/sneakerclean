@@ -265,20 +265,128 @@
             Заполните форму, и мы свяжемся с вами в течение 15 минут.
           </p>
 
-          <form class="order-form mt-5">
+          <form class="order-form mt-5" id="orderForm" novalidate>
             <div class="row g-3">
-              <div class="col-sm-6">
-                <input type="text" class="form-control fc-dark" placeholder="Ваше имя">
-              </div>
-              <div class="col-sm-6">
-                <input type="tel" class="form-control fc-dark" placeholder="Телефон">
-              </div>
+
+              <!-- ── 1. Тип услуги ──────────────────────────────
+                   Three toggle-buttons; only one can be active at a time.
+                   Desktop: 3 in a column (flex-column).
+                   Mobile: 3 per row (flex-row wraps automatically).
+              ─────────────────────────────────────────────────── -->
               <div class="col-12">
-                <textarea class="form-control fc-dark" rows="3" placeholder="Комментарий (необязательно)"></textarea>
+                <p class="form-section-label">Тип услуги</p>
+                <!-- role="group" groups related buttons for screen readers -->
+                <div class="service-toggle-group" role="group" aria-label="Тип услуги">
+                  <button type="button" class="svc-btn active" data-svc="cleaning">
+                    <i class="bi bi-stars" aria-hidden="true"></i>
+                    Чистка кроссовок
+                  </button>
+                  <button type="button" class="svc-btn" data-svc="restoration">
+                    <i class="bi bi-palette" aria-hidden="true"></i>
+                    Реставрация
+                  </button>
+                  <button type="button" class="svc-btn" data-svc="repair">
+                    <i class="bi bi-tools" aria-hidden="true"></i>
+                    Ремонт
+                  </button>
+                </div>
+                <!-- Hidden input carries the selected value on submit -->
+                <input type="hidden" name="service" id="serviceValue" value="cleaning">
               </div>
+
+              <!-- ── 2. Имя + Фамилия (two inputs, one row) ──── -->
+              <div class="col-sm-6">
+                <input type="text" class="form-control fc-dark" name="firstName"
+                       placeholder="Ваше имя" autocomplete="given-name" required>
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control fc-dark" name="lastName"
+                       placeholder="Ваша фамилия" autocomplete="family-name">
+              </div>
+
+              <!-- ── 3. Адрес получения (full-width) ─────────── -->
+              <div class="col-12">
+                <input type="text" class="form-control fc-dark" name="pickupAddress"
+                       placeholder="Адрес (где забрать)" autocomplete="street-address">
+              </div>
+
+              <!-- ── 4. Загрузка фото / видео ──────────────────
+                   Custom-styled file input; label acts as the clickable area.
+              ─────────────────────────────────────────────────── -->
+              <div class="col-12">
+                <p class="form-section-label">Фотографии / видео обуви</p>
+                <label class="file-upload-label" for="shoeMedia">
+                  <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+                  <span class="file-upload-text" id="fileUploadText">Загрузите фотографии или видео</span>
+                  <!-- accept covers common image types and video -->
+                  <input type="file" id="shoeMedia" name="shoeMedia"
+                         accept="image/*,video/*" multiple hidden>
+                </label>
+              </div>
+
+              <!-- ── 5. Детали доставки ─────────────────────── -->
+              <div class="col-12">
+                <p class="form-section-label">Детали доставки</p>
+                <div class="delivery-block">
+
+                  <!-- 5a. Район доставки — три варианта -->
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="fc-label" for="deliveryZone">Район доставки</label>
+                      <select class="form-select fc-dark" id="deliveryZone" name="deliveryZone">
+                        <option value="" disabled selected>Выберите район и время</option>
+                        <option value="tue-oktyabrsky">Вторник с 17:30–19:30 (Октябрьский район)</option>
+                        <option value="wed-leninsky">Среда с 17:30–19:30 (Ленинский район)</option>
+                        <option value="sat-both">Суббота с 10:00–14:00 (Октябрьский и Ленинский районы)</option>
+                      </select>
+                    </div>
+
+                    <!-- 5b. День / время -->
+                    <div class="col-sm-6">
+                      <label class="fc-label" for="deliveryDate">День</label>
+                      <input type="date" class="form-control fc-dark" id="deliveryDate" name="deliveryDate">
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="fc-label" for="deliveryTime">Время</label>
+                      <input type="time" class="form-control fc-dark" id="deliveryTime" name="deliveryTime">
+                    </div>
+
+                    <!-- 5c. Полный адрес доставки -->
+                    <div class="col-12">
+                      <label class="fc-label" for="deliveryFull">Полный адрес (подъезд, этаж, квартира)</label>
+                      <input type="text" class="form-control fc-dark" id="deliveryFull"
+                             name="deliveryFull" placeholder="Подъезд, этаж, квартира">
+                    </div>
+
+                    <!-- 5d. Телефон с кодом страны -->
+                    <div class="col-12">
+                      <label class="fc-label" for="deliveryPhone">Телефон</label>
+                      <div class="phone-wrap">
+                        <!-- Country-code prefix — static for BY, but visually consistent -->
+                        <span class="phone-prefix">+375</span>
+                        <input type="tel" class="form-control fc-dark phone-input"
+                               id="deliveryPhone" name="deliveryPhone"
+                               placeholder="(XX) XXX-XX-XX"
+                               autocomplete="tel-national">
+                      </div>
+                    </div>
+                  </div>
+
+                </div><!-- /delivery-block -->
+              </div>
+
+              <!-- ── 6. Примечания ──────────────────────────── -->
+              <div class="col-12">
+                <label class="fc-label" for="orderNotes">Примечания</label>
+                <textarea class="form-control fc-dark" id="orderNotes" name="notes"
+                          rows="3" placeholder="Любые дополнительные пожелания"></textarea>
+              </div>
+
+              <!-- Submit -->
               <div class="col-12">
                 <button type="submit" class="btn btn-accent btn-lg w-100">Отправить заявку</button>
               </div>
+
             </div>
           </form>
 

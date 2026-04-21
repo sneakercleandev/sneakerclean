@@ -122,3 +122,43 @@ fadeEls.forEach((el) => observer.observe(el));
   startTimer();
 }());
 
+/* ─────────────────────────────────────────────
+   ORDER FORM — interactive controls
+───────────────────────────────────────────── */
+
+/* Service toggle-buttons: clicking one makes it active, deactivates the rest */
+(function () {
+  const group  = document.querySelector('.service-toggle-group');
+  const hidden = document.getElementById('serviceValue');
+  if (!group || !hidden) return;
+
+  group.addEventListener('click', (e) => {
+    const btn = e.target.closest('.svc-btn');
+    if (!btn) return;
+
+    /* Remove active from all siblings, set on the clicked one */
+    group.querySelectorAll('.svc-btn').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+    hidden.value = btn.dataset.svc;
+  });
+}());
+
+/* File upload label: update the visible text to list chosen file names */
+(function () {
+  const input      = document.getElementById('shoeMedia');
+  const labelText  = document.getElementById('fileUploadText');
+  if (!input || !labelText) return;
+
+  input.addEventListener('change', () => {
+    const files = Array.from(input.files);
+    if (!files.length) {
+      labelText.textContent = 'Загрузите фотографии или видео';
+      return;
+    }
+    /* Show up to 2 file names, then "+ N ещё" if there are more */
+    const names   = files.slice(0, 2).map((f) => f.name).join(', ');
+    const extra   = files.length > 2 ? ` + ещё ${files.length - 2}` : '';
+    labelText.textContent = names + extra;
+  });
+}());
+

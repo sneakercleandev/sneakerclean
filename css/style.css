@@ -534,6 +534,147 @@ a { text-decoration: none; color: inherit; }
 
 .order-form { text-align: left; }
 
+/* Sub-heading inside the form ("Тип услуги", "Детали доставки", …) */
+.form-section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.65rem;
+}
+
+/* Small inline label above a specific input */
+.fc-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+/* ── Service toggle-buttons ────────────────────────────────────────
+   Desktop (≥576px): three buttons in a column, full width.
+   Mobile (<576px) : three buttons in one row, equal width.
+──────────────────────────────────────────────────────────────────── */
+.service-toggle-group {
+  display: flex;
+  flex-direction: column;   /* column on desktop */
+  gap: 0.6rem;
+}
+@media (max-width: 575.98px) {
+  .service-toggle-group {
+    flex-direction: row;    /* row on mobile */
+    flex-wrap: nowrap;
+  }
+}
+
+.svc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition),
+              background var(--transition);
+  /* On mobile each button takes equal share of the row */
+  flex: 1;
+  white-space: nowrap;
+}
+.svc-btn i { font-size: 1rem; }
+.svc-btn:hover {
+  border-color: rgba(0, 229, 190, 0.4);
+  color: var(--text-primary);
+}
+/* Active / selected state */
+.svc-btn.active {
+  background: rgba(0, 229, 190, 0.08);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Delivery detail block — subtle inset card ─────────────────── */
+.delivery-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+/* ── Select override (matches fc-dark inputs) ──────────────────── */
+.form-select.fc-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16'%3E%3Cpath fill='%238a8a8a' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.form-select.fc-dark option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* ── Date / time input — override browser chrome ──────────────── */
+input[type="date"].fc-dark,
+input[type="time"].fc-dark {
+  color-scheme: dark;   /* tells Chromium to render the picker in dark mode */
+}
+
+/* ── Phone row: prefix + input in one line ─────────────────────── */
+.phone-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.phone-prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: var(--radius) 0 0 var(--radius);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.phone-input {
+  border-radius: 0 var(--radius) var(--radius) 0 !important;
+  flex: 1;
+}
+
+/* ── File upload — custom styled label ─────────────────────────── */
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+.file-upload-label i { font-size: 1.3rem; color: var(--accent); flex-shrink: 0; }
+.file-upload-label:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+/* Text inside the label updates via JS when files are chosen */
+.file-upload-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
 /* ═══════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════════ */
