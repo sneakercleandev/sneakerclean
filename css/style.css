@@ -676,19 +676,34 @@ input[type="time"].fc-dark {
 .file-upload-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ═══════════════════════════════════════════
-   FOOTER
+   FOOTER — 4-column layout
 ════════════════════════════════════════════ */
 .site-footer {
   background: var(--bg-2);
   border-top: 1px solid var(--border);
 }
 
+/* Short brand description under the logo */
 .footer-tagline {
   font-size: 0.78rem;
+  line-height: 1.6;
   color: var(--text-muted);
   margin: 0;
+  max-width: 220px;
 }
 
+/* Column heading ("Навигация", "Контакты", "Информация") */
+.footer-col-heading {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* Navigation list */
+.footer-nav li { margin-bottom: 0.55rem; }
 .footer-nav a {
   font-size: 0.82rem;
   color: var(--text-secondary);
@@ -696,19 +711,86 @@ input[type="time"].fc-dark {
 }
 .footer-nav a:hover { color: var(--accent); }
 
-.footer-social a {
-  font-size: 1.15rem;
+/* Social icon buttons — circular bordered, matching .nav-social */
+.footer-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: border-color var(--transition), color var(--transition);
+}
+.footer-social-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Contacts list — icon + text pairs */
+.footer-contacts li { margin-bottom: 0.65rem; }
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   transition: color var(--transition);
 }
-.footer-social a:hover { color: var(--accent); }
+.footer-contact-link i { color: var(--accent); font-size: 0.9rem; flex-shrink: 0; }
+.footer-contact-link:hover { color: var(--text-primary); }
 
+/* Info items — icon + text, with vertical gap between rows */
+.footer-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.footer-info-item i { color: var(--accent); font-size: 0.9rem; flex-shrink: 0; margin-top: 0.2rem; }
+
+/* Map placeholder — replace content with <iframe> when ready.
+   min-height keeps it visible even when the sibling Info column is short.
+   On mobile it falls back to a fixed aspect-ratio so it doesn't grow too tall. */
+.footer-map-placeholder {
+  width: 100%;
+  min-height: 180px;
+  aspect-ratio: 16 / 7;   /* mobile fallback; overridden to stretch on lg+ */
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+.footer-map-placeholder i { font-size: 1.5rem; }
+
+/* On desktop the map column is taller — let the placeholder fill it fully */
+@media (min-width: 992px) {
+  .col-lg-4 .footer-map-placeholder {
+    aspect-ratio: unset;
+    height: 100%;
+  }
+}
+
+/* Copyright bar */
 .footer-bottom {
   border-top: 1px solid var(--border);
   padding: 1rem 0;
   font-size: 0.75rem;
   color: var(--text-muted);
 }
+
+/* On mobile: col-6 columns (Nav + Contacts) sit side by side,
+   Brand and Info are full width — handled by Bootstrap col classes.
+   No extra media query needed beyond what Bootstrap provides. */
 
 /* ═══════════════════════════════════════════
    SCROLL ANIMATION

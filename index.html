@@ -398,37 +398,120 @@
 
   <!-- ═══════════════════════════════════════════
        FOOTER
+       3-column grid on desktop (lg+):
+         Col 1 — Brand + tagline + social icons       (col-lg-3)
+         Col 2 — Contacts                             (col-lg-3)
+         Col 3 — Информация: address + hours          (col-lg-2)
+         Col 4 — Map placeholder                      (col-lg-4)
+       Tablet (sm–lg): col 1+2 on row 1, col 3+4 on row 2.
+       Mobile: all columns full-width, stacked.
   ════════════════════════════════════════════ -->
   <footer id="footer" class="site-footer">
     <div class="container-fluid px-4 px-lg-5">
 
-      <div class="row align-items-center py-4">
-        <div class="col-lg-4 mb-3 mb-lg-0">
-          <a class="navbar-brand" href="#">
+      <div class="row g-4 footer-main py-5 align-items-start">
+
+        <!-- ── Col 1: Brand + tagline + social icons ── -->
+        <div class="col-12 col-sm-6 col-lg-3">
+
+          <!-- Logo -->
+          <a class="navbar-brand d-inline-block mb-2" href="#">
             <span class="brand-primary">Sneaker</span><span class="brand-accent">Clean</span>
           </a>
-          <p class="footer-tagline mt-2">Профессиональная чистка кроссовок</p>
+
+          <!-- Short description -->
+          <p class="footer-tagline">Профессиональная чистка и уход за кроссовками в Минске</p>
+
+          <!-- Social icon buttons below the tagline -->
+          <div class="footer-social d-flex gap-2 mt-3">
+            <a href="https://instagram.com/sneakerclean" class="footer-social-btn"
+               aria-label="Instagram" target="_blank" rel="noopener">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://t.me/sneakerclean" class="footer-social-btn"
+               aria-label="Telegram" target="_blank" rel="noopener">
+              <i class="bi bi-telegram" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="footer-social-btn" aria-label="VK">
+              <i class="bi bi-vk" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
 
-        <div class="col-lg-4 text-lg-center mb-3 mb-lg-0">
-          <ul class="footer-nav list-unstyled d-flex flex-wrap gap-3 justify-content-lg-center mb-0">
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#examples">Примеры</a></li>
-            <li><a href="#order">Заказать</a></li>
+        <!-- ── Col 2: Contacts ── -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <p class="footer-col-heading">Контакты</p>
+          <ul class="footer-contacts list-unstyled mb-0">
+
+            <!-- Phone -->
+            <li>
+              <a href="tel:+375336867655" class="footer-contact-link">
+                <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+                +375 (33) 686-76-55
+              </a>
+            </li>
+
+            <!-- Instagram -->
+            <li>
+              <a href="https://instagram.com/sneakerclean" class="footer-contact-link"
+                 target="_blank" rel="noopener">
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+                @sneakerclean
+              </a>
+            </li>
+
+            <!-- Telegram -->
+            <li>
+              <a href="https://t.me/sneakerclean" class="footer-contact-link"
+                 target="_blank" rel="noopener">
+                <i class="bi bi-telegram" aria-hidden="true"></i>
+                t.me/sneakerclean
+              </a>
+            </li>
+
           </ul>
         </div>
 
-        <div class="col-lg-4 text-lg-end">
-          <div class="footer-social d-flex gap-3 justify-content-lg-end">
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
-            <a href="#" aria-label="VK"><i class="bi bi-vk"></i></a>
+        <!-- ── Col 3: Информация — address + hours ── -->
+        <div class="col-12 col-sm-6 col-lg-2">
+          <p class="footer-col-heading">Информация</p>
+
+          <!-- Address -->
+          <div class="footer-info-item">
+            <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+            <span>г. Минск, Беларусь</span>
+          </div>
+
+          <!-- Working hours -->
+          <div class="footer-info-item">
+            <i class="bi bi-clock-fill" aria-hidden="true"></i>
+            <div>
+              <div>Пн–Пт: 09:00–20:00</div>
+              <div>Сб–Вс: 10:00–18:00</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── Col 4: Map placeholder ──
+             Wider than the info column so the map has breathing room.
+             Replace the inner div with a real <iframe> when ready.
+        ── -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <!-- Map placeholder — swap for <iframe src="..."> when a real map is available -->
+          <div class="footer-map-placeholder" aria-label="Карта расположения">
+            <i class="bi bi-map" aria-hidden="true"></i>
+            <span>Карта</span>
           </div>
         </div>
-      </div>
 
-      <div class="footer-bottom">
+      </div><!-- /footer-main row -->
+
+      <!-- Copyright bar -->
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
         <span>© 2026 SneakerClean. Все права защищены.</span>
+        <span>Минск, Беларусь</span>
       </div>
 
     </div>
