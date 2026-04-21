@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SneakerClean — Чистка и реставрация кроссовок</title>
+
+  <!-- Bootstrap 5.3.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       MENU
+  ════════════════════════════════════════════ -->
+  <header id="menu" class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid px-4 px-lg-5">
+
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <span class="brand-primary">Sneaker</span><span class="brand-accent">Clean</span>
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Меню">
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+          <span class="toggler-icon"></span>
+        </button>
+
+        <!-- Nav links -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-lg-4">
+            <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+            <li class="nav-item"><a class="nav-link" href="#examples">Примеры работ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#order">Заказать</a></li>
+          </ul>
+          <a href="#order" class="btn btn-accent ms-lg-4">Заказать чистку</a>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO / ABOUT
+  ════════════════════════════════════════════ -->
+  <section id="about" class="section-hero">
+    <!-- Decorative blobs -->
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <div class="container-fluid px-4 px-lg-5">
+      <div class="row align-items-center min-vh-100">
+
+        <div class="col-lg-6 hero-content fade-up">
+          <p class="overline">Профессиональная чистка</p>
+          <h1 class="hero-title">
+            чистка<br>
+            <span class="accent">кроссовок</span>
+          </h1>
+          <p class="hero-sub">
+            Возвращаем вашим кроссовкам первоначальный вид.<br>
+            Используем только профессиональные средства.
+          </p>
+          <div class="d-flex align-items-center gap-3 mt-4">
+            <a href="#order" class="btn btn-accent btn-lg">Заказать</a>
+            <a href="#examples" class="btn btn-ghost btn-lg">Примеры работ</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 hero-image-col fade-up">
+          <!-- Hero image placeholder -->
+          <div class="hero-img-placeholder">
+            <i class="bi bi-image"></i>
+            <span>Фото кроссовок</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       EXAMPLES
+  ════════════════════════════════════════════ -->
+  <section id="examples" class="section-examples py-section">
+    <div class="container-fluid px-4 px-lg-5">
+
+      <div class="section-header fade-up">
+        <p class="overline">Наши работы</p>
+        <h2 class="section-title">Примеры <span class="accent">до и после</span></h2>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <!-- Placeholder cards — content added later -->
+        <div class="col-sm-6 col-lg-4 fade-up">
+          <div class="example-card">
+            <div class="example-img-placeholder">
+              <i class="bi bi-image"></i>
+            </div>
+            <div class="example-label">Пример работы 1</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 fade-up">
+          <div class="example-card">
+            <div class="example-img-placeholder">
+              <i class="bi bi-image"></i>
+            </div>
+            <div class="example-label">Пример работы 2</div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 fade-up">
+          <div class="example-card">
+            <div class="example-img-placeholder">
+              <i class="bi bi-image"></i>
+            </div>
+            <div class="example-label">Пример работы 3</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       ORDER
+  ════════════════════════════════════════════ -->
+  <section id="order" class="section-order py-section">
+    <!-- Decorative blob -->
+    <div class="blob blob-3" aria-hidden="true"></div>
+
+    <div class="container-fluid px-4 px-lg-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 text-center fade-up">
+
+          <p class="overline">Оставить заявку</p>
+          <h2 class="section-title">Заказать <span class="accent">чистку</span></h2>
+          <p class="section-sub mt-3">
+            Заполните форму, и мы свяжемся с вами в течение 15 минут.
+          </p>
+
+          <form class="order-form mt-5">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <input type="text" class="form-control fc-dark" placeholder="Ваше имя">
+              </div>
+              <div class="col-sm-6">
+                <input type="tel" class="form-control fc-dark" placeholder="Телефон">
+              </div>
+              <div class="col-12">
+                <textarea class="form-control fc-dark" rows="3" placeholder="Комментарий (необязательно)"></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-accent btn-lg w-100">Отправить заявку</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer id="footer" class="site-footer">
+    <div class="container-fluid px-4 px-lg-5">
+
+      <div class="row align-items-center py-4">
+        <div class="col-lg-4 mb-3 mb-lg-0">
+          <a class="navbar-brand" href="#">
+            <span class="brand-primary">Sneaker</span><span class="brand-accent">Clean</span>
+          </a>
+          <p class="footer-tagline mt-2">Профессиональная чистка кроссовок</p>
+        </div>
+
+        <div class="col-lg-4 text-lg-center mb-3 mb-lg-0">
+          <ul class="footer-nav list-unstyled d-flex flex-wrap gap-3 justify-content-lg-center mb-0">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#examples">Примеры</a></li>
+            <li><a href="#order">Заказать</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 text-lg-end">
+          <div class="footer-social d-flex gap-3 justify-content-lg-end">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+            <a href="#" aria-label="VK"><i class="bi bi-vk"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 SneakerClean. Все права защищены.</span>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
