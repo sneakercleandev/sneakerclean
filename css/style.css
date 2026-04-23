@@ -645,19 +645,13 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ── Service toggle-buttons ────────────────────────────────────────
-   Desktop (≥576px): three buttons in a column, full width.
-   Mobile (<576px) : three buttons in one row, equal width.
+   Always: three buttons in one row, equal width.
 ──────────────────────────────────────────────────────────────────── */
 .service-toggle-group {
   display: flex;
-  flex-direction: column;   /* column on desktop */
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 0.6rem;
-}
-@media (max-width: 575.98px) {
-  .service-toggle-group {
-    flex-direction: row;    /* row on mobile */
-    flex-wrap: nowrap;
-  }
 }
 
 .svc-btn {
