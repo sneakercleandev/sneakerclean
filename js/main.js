@@ -144,6 +144,36 @@ fadeEls.forEach((el) => observer.observe(el));
 }());
 
 /* ─────────────────────────────────────────────
+   LIGHTBOX — click ex-img to view full size
+───────────────────────────────────────────── */
+(function () {
+  const overlay = document.getElementById('lightbox');
+  const img     = document.getElementById('lightboxImg');
+  if (!overlay || !img) return;
+
+  function open(src, alt) {
+    img.src = src;
+    img.alt = alt;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    img.src = '';
+  }
+
+  document.querySelectorAll('.ex-img').forEach((el) => {
+    el.addEventListener('click', () => open(el.src, el.alt));
+  });
+
+  overlay.querySelector('.lightbox-close').addEventListener('click', close);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+}());
+
+/* ─────────────────────────────────────────────
    PRICE MODALS — Чистка / Ремонт
 ───────────────────────────────────────────── */
 (function () {

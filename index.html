@@ -204,40 +204,33 @@
           <!-- Track — translated left/right via JS to reveal different cards -->
           <div class="ex-track" id="exTrack">
 
-            <!-- Each card: image fills the card, label below -->
+            <!-- Each card: image scaled to fit, clickable to open lightbox -->
             <div class="ex-card">
               <img src="images/case1.jpg" alt="Пример работы 1" class="ex-img" loading="eager">
-              <div class="ex-label">Пример работы 1</div>
             </div>
 
             <div class="ex-card">
               <img src="images/case2.jpg" alt="Пример работы 2" class="ex-img" loading="lazy">
-              <div class="ex-label">Пример работы 2</div>
             </div>
 
             <div class="ex-card">
               <img src="images/case3.jpg" alt="Пример работы 3" class="ex-img" loading="lazy">
-              <div class="ex-label">Пример работы 3</div>
             </div>
 
             <div class="ex-card">
               <img src="images/case4.jpg" alt="Пример работы 4" class="ex-img" loading="lazy">
-              <div class="ex-label">Пример работы 4</div>
             </div>
 
             <div class="ex-card">
               <img src="images/case5.jpg" alt="Пример работы 5" class="ex-img" loading="lazy">
-              <div class="ex-label">Пример работы 5</div>
             </div>
 
             <div class="ex-card">
               <img src="images/case6.jpg" alt="Пример работы 6" class="ex-img" loading="lazy">
-              <div class="ex-label">Пример работы 6</div>
             </div>
 
             <div class="ex-card">
               <img src="images/case7.jpg" alt="Пример работы 7" class="ex-img" loading="lazy">
-              <div class="ex-label">Пример работы 7</div>
             </div>
 
           </div><!-- /ex-track -->
@@ -526,6 +519,14 @@
     </div>
   </footer>
 
+
+  <!-- ═══════════════════════════════════════════
+       LIGHTBOX
+  ════════════════════════════════════════════ -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+    <button class="lightbox-close" aria-label="Закрыть"><i class="bi bi-x-lg"></i></button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
 
   <!-- ═══════════════════════════════════════════
        PRICE MODALS
