@@ -1,3 +1,31 @@
+/* ─────────────────────────────────────────────
+   DEV HELPER — fill #orderForm with fake data
+   Usage: fillOrder()
+───────────────────────────────────────────── */
+window.fillOrder = function () {
+  const f = document.getElementById('orderForm');
+  if (!f) { console.warn('orderForm not found'); return; }
+
+  f.querySelector('[name="firstName"]').value    = 'Иван';
+  f.querySelector('[name="lastName"]').value     = 'Петров';
+  f.querySelector('[name="pickupAddress"]').value = 'ул. Советская, д. 5';
+  f.querySelector('[name="deliveryZone"]').value  = 'tue-oktyabrsky';
+  f.querySelector('[name="deliveryDate"]').value  = '2026-04-29';
+  f.querySelector('[name="deliveryTimeFrom"]').value = '17:30';
+  f.querySelector('[name="deliveryTimeTo"]').value   = '19:30';
+  f.querySelector('[name="deliveryFull"]').value  = 'ул. Советская, д. 5, подъезд 2, эт. 3, кв. 12';
+  f.querySelector('[name="deliveryPhone"]').value = '291234567';
+  f.querySelector('[name="notes"]').value         = 'Позвоните за 30 минут до приезда.';
+
+  /* Activate second service button (Химчистка и ремонт) */
+  const btns = f.querySelectorAll('.svc-btn');
+  btns.forEach((b) => b.classList.remove('active'));
+  btns[1].classList.add('active');
+  document.getElementById('serviceValue').value = btns[1].dataset.svc;
+
+  console.info('[DEV] orderForm filled with fake data. Run: document.getElementById("orderForm").querySelector("[type=submit]").click()');
+};
+
 /* Navbar: add .scrolled class on scroll */
 window.addEventListener('scroll', () => {
   document.querySelector('.site-header')
@@ -231,7 +259,7 @@ fadeEls.forEach((el) => observer.observe(el));
   const submitBtn = form ? form.querySelector('[type="submit"]') : null;
   if (!form) return;
 
-  const API_URL = 'http://localhost:5000/api/order'; // local backend endpoint
+  const API_URL = 'https://localhost:7182/api/order'; // local backend endpoint
 
   /* ── Toast helper ── */
   let toastEl = null;
@@ -359,6 +387,15 @@ fadeEls.forEach((el) => observer.observe(el));
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Отправляем…';
+
+    /* When opened via file:// there is no HTTP server to reach — simulate success */
+    if (location.protocol === 'file:') {
+      console.info('[DEV] file:// origin — skipping real fetch. Payload:', Object.fromEntries(data));
+      showToast('[DEV] Форма валидна. Откройте через http:// для реального запроса.', 'success');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Отправить заявку';
+      return;
+    }
 
     try {
       const res = await fetch(API_URL, { method: 'POST', body: data });
