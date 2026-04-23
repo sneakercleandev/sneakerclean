@@ -624,6 +624,55 @@ a { text-decoration: none; color: inherit; }
   outline: none;
 }
 
+/* Validation states */
+.fc-dark.fc-invalid {
+  border-color: #e05a67;
+  box-shadow: 0 0 0 3px rgba(220,53,69,0.12);
+}
+.fc-error-msg {
+  display: none;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: #e05a67;
+  margin-top: 0.3rem;
+  width: 100%;
+  align-self: flex-start;
+}
+.fc-error-msg:not(:empty) { display: block; }
+
+/* Service toggle validation */
+.service-toggle-group.fc-invalid .svc-btn:not(.active) {
+  border-color: #e05a67;
+}
+
+/* Submit feedback toast */
+.form-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  z-index: 5000;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.form-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.form-toast.toast-success { border-color: rgba(0,229,190,0.4); color: var(--accent); }
+.form-toast.toast-error   { border-color: rgba(220,53,69,0.4); color: #e05a67; }
+
+.btn-accent:disabled { opacity: 0.6; cursor: not-allowed; }
+
 .order-form { text-align: left; }
 
 /* Sub-heading inside the form ("Тип услуги", "Детали доставки", …) */

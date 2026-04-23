@@ -344,20 +344,24 @@
                     </div>
 
                     <!-- 5b. День / время -->
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                       <label class="fc-label" for="deliveryDate">День</label>
                       <input type="date" class="form-control fc-dark" id="deliveryDate" name="deliveryDate">
                     </div>
-                    <div class="col-sm-6">
-                      <label class="fc-label" for="deliveryTime">Время</label>
-                      <input type="time" class="form-control fc-dark" id="deliveryTime" name="deliveryTime">
+                    <div class="col-sm-4">
+                      <label class="fc-label" for="deliveryTimeFrom">Время (с)</label>
+                      <input type="time" class="form-control fc-dark" id="deliveryTimeFrom" name="deliveryTimeFrom">
+                    </div>
+                    <div class="col-sm-4">
+                      <label class="fc-label" for="deliveryTimeTo">Время (по)</label>
+                      <input type="time" class="form-control fc-dark" id="deliveryTimeTo" name="deliveryTimeTo">
                     </div>
 
                     <!-- 5c. Полный адрес доставки -->
                     <div class="col-12">
-                      <label class="fc-label" for="deliveryFull">Полный адрес (подъезд, этаж, квартира)</label>
+                      <label class="fc-label" for="deliveryFull">Полный адрес (улица, дом, подъезд, этаж, квартира)</label>
                       <input type="text" class="form-control fc-dark" id="deliveryFull"
-                             name="deliveryFull" placeholder="Подъезд, этаж, квартира">
+                             name="deliveryFull" placeholder="Улица, дом, подъезд, этаж, квартира">
                     </div>
 
                     <!-- 5d. Телефон с кодом страны -->

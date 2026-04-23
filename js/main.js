@@ -223,6 +223,164 @@ fadeEls.forEach((el) => observer.observe(el));
   });
 }());
 
+/* ─────────────────────────────────────────────
+   ORDER FORM — validation + submit
+───────────────────────────────────────────── */
+(function () {
+  const form      = document.getElementById('orderForm');
+  const submitBtn = form ? form.querySelector('[type="submit"]') : null;
+  if (!form) return;
+
+  const API_URL = 'http://localhost:5000/api/order'; // local backend endpoint
+
+  /* ── Toast helper ── */
+  let toastEl = null;
+  let toastTimer = null;
+  function showToast(msg, type /* 'success' | 'error' */) {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.className = 'form-toast';
+      document.body.appendChild(toastEl);
+    }
+    clearTimeout(toastTimer);
+    toastEl.textContent = msg;
+    toastEl.className = 'form-toast toast-' + type;
+    requestAnimationFrame(() => toastEl.classList.add('show'));
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 4000);
+  }
+
+  /* ── Field-level error helpers ── */
+  /* Anchor the error message to the nearest block-level wrapper so it
+     always sits below the full input (even inside flex containers like .phone-wrap). */
+  function errorAnchor(el) {
+    return el.closest('.phone-wrap') ? el.closest('.phone-wrap').parentElement : el.parentElement;
+  }
+  function setError(el, msg) {
+    el.classList.add('fc-invalid');
+    const anchor = errorAnchor(el);
+    let err = anchor.querySelector(':scope > .fc-error-msg');
+    if (!err) {
+      err = document.createElement('span');
+      err.className = 'fc-error-msg';
+      anchor.appendChild(err);
+    }
+    err.textContent = msg;
+  }
+  function clearError(el) {
+    el.classList.remove('fc-invalid');
+    const anchor = errorAnchor(el);
+    const err = anchor.querySelector(':scope > .fc-error-msg');
+    if (err) err.textContent = '';
+  }
+
+  /* ── Validation rules ── */
+  function validate() {
+    let ok = true;
+
+    const firstName = form.querySelector('[name="firstName"]');
+    if (!firstName.value.trim()) {
+      setError(firstName, 'Введите имя');
+      ok = false;
+    } else clearError(firstName);
+
+    const lastName = form.querySelector('[name="lastName"]');
+    if (!lastName.value.trim()) {
+      setError(lastName, 'Введите фамилию');
+      ok = false;
+    } else clearError(lastName);
+
+    const phone = form.querySelector('[name="deliveryPhone"]');
+    const phoneDigits = phone.value.replace(/\D/g, '');
+    if (!phoneDigits) {
+      setError(phone, 'Введите номер телефона');
+      ok = false;
+    } else if (phoneDigits.length < 9) {
+      setError(phone, 'Номер слишком короткий');
+      ok = false;
+    } else clearError(phone);
+
+    const pickupAddress = form.querySelector('[name="pickupAddress"]');
+    if (!pickupAddress.value.trim()) {
+      setError(pickupAddress, 'Укажите адрес получения');
+      ok = false;
+    } else clearError(pickupAddress);
+
+    const deliveryFull = form.querySelector('[name="deliveryFull"]');
+    if (!deliveryFull.value.trim()) {
+      setError(deliveryFull, 'Укажите полный адрес доставки');
+      ok = false;
+    } else clearError(deliveryFull);
+
+    const zone = form.querySelector('[name="deliveryZone"]');
+    if (!zone.value) {
+      setError(zone, 'Выберите район доставки');
+      ok = false;
+    } else clearError(zone);
+
+    const date = form.querySelector('[name="deliveryDate"]');
+    if (!date.value) {
+      setError(date, 'Укажите день');
+      ok = false;
+    } else clearError(date);
+
+    const timeFrom = form.querySelector('[name="deliveryTimeFrom"]');
+    if (!timeFrom.value) {
+      setError(timeFrom, 'Укажите время');
+      ok = false;
+    } else clearError(timeFrom);
+
+    const timeTo = form.querySelector('[name="deliveryTimeTo"]');
+    if (!timeTo.value) {
+      setError(timeTo, 'Укажите время');
+      ok = false;
+    } else if (timeFrom.value && timeTo.value <= timeFrom.value) {
+      setError(timeTo, 'Должно быть позже "Время (с)"');
+      ok = false;
+    } else clearError(timeTo);
+
+    return ok;
+  }
+
+  /* Clear error on input */
+  form.querySelectorAll('.fc-dark').forEach((el) => {
+    el.addEventListener('input', () => clearError(el));
+    el.addEventListener('change', () => clearError(el));
+  });
+
+  /* ── Submit ── */
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    /* Build multipart payload (supports file attachments) */
+    const data = new FormData(form);
+    /* Append full phone with prefix for convenience */
+    data.set('deliveryPhone', '+375' + form.querySelector('[name="deliveryPhone"]').value.replace(/\D/g, ''));
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Отправляем…';
+
+    try {
+      const res = await fetch(API_URL, { method: 'POST', body: data });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      showToast('Заявка отправлена! Мы свяжемся с вами в течение 15 минут.', 'success');
+      form.reset();
+      form.querySelector('[name="firstName"]') && form.querySelectorAll('.fc-dark').forEach(clearError);
+      /* Reset service toggle to first button */
+      const btns = form.querySelectorAll('.svc-btn');
+      btns.forEach((b) => b.classList.remove('active'));
+      btns[0] && btns[0].classList.add('active');
+      document.getElementById('serviceValue').value = btns[0] ? btns[0].dataset.svc : '';
+      document.getElementById('fileUploadText').textContent = 'Загрузите фотографии или видео';
+    } catch (err) {
+      showToast('Ошибка отправки. Проверьте соединение и попробуйте снова.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Отправить заявку';
+    }
+  });
+}());
+
 /* File upload label: update the visible text to list chosen file names */
 (function () {
   const input      = document.getElementById('shoeMedia');
