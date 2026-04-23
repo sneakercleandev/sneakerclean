@@ -27,16 +27,25 @@
 
         <!-- Logo -->
         <a class="navbar-brand" href="#">
-          <img src="images/logo_white.png" alt="Пример работы 1" style="width: 48px;height: 48px;" loading="eager">
+          <img src="images/logo_sm.png" alt="Пример работы 1" style="width: 48px;height: 48px;" loading="eager">
           <span class="brand-primary">Sneaker</span><span class="brand-primary">Clean</span>
         </a>
 
+        <!-- Nav links (коллапс на мобайле) -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-lg-4">
+            <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+            <li class="nav-item"><a class="nav-link" href="#examples">Примеры работ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#order">Заказать</a></li>
+          </ul>
+        </div>
+
         <!-- Контакты: телефон + соцсети (всегда видны; на мобайле — рядом с тогглером) -->
-        <div class="nav-contacts d-flex align-items-center gap-2 ms-auto ms-lg-0 me-2 me-lg-0">
+        <div class="nav-contacts d-flex align-items-center gap-2">
           <!-- Телефон -->
           <a href="tel:+375336867655" class="nav-phone d-flex align-items-center gap-1 text-decoration-none">
             <i class="bi bi-telephone-fill"></i>
-            <span>+375 (33) 686-76-55</span>
+            <span id="telephone">+375 (33) 686-76-55</span>
           </a>
           <!-- Instagram -->
           <a href="https://instagram.com/sneakerclean" class="nav-social" aria-label="Instagram" target="_blank" rel="noopener">
@@ -49,22 +58,13 @@
         </div>
 
         <!-- Mobile toggle -->
-        <button class="navbar-toggler" type="button"
+        <button class="navbar-toggler ps-3" type="button"
                 data-bs-toggle="collapse" data-bs-target="#mainNav"
                 aria-controls="mainNav" aria-expanded="false" aria-label="Меню">
           <span class="toggler-icon"></span>
           <span class="toggler-icon"></span>
           <span class="toggler-icon"></span>
         </button>
-
-        <!-- Nav links (коллапс на мобайле) -->
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav mx-auto gap-lg-4">
-            <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
-            <li class="nav-item"><a class="nav-link" href="#examples">Примеры работ</a></li>
-            <li class="nav-item"><a class="nav-link" href="#order">Заказать</a></li>
-          </ul>
-        </div>
 
       </div>
     </nav>

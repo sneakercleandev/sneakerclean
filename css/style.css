@@ -192,7 +192,10 @@ a { text-decoration: none; color: inherit; }
   border-bottom: 1px solid var(--border);
 }
 
-.navbar { padding: 1.25rem 0; }
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
 
 .brand-primary {
   font-family: var(--font-display);
@@ -237,7 +240,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* Nav contacts block (phone + social icons) */
-.nav-contacts { flex-wrap: nowrap; }
+.nav-contacts { flex-wrap: nowrap; flex-shrink: 0; }
 
 .nav-phone {
   font-size: 0.82rem;
@@ -278,8 +281,55 @@ a { text-decoration: none; color: inherit; }
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
-    padding: 1rem 1.5rem 1.25rem;
+    padding: 0.25rem 1.75rem 0.25rem;
     z-index: 999;
+    border: 3px solid rgba(29, 28, 28, 0.97);
+  }
+
+  /* sm–md: brand | contacts (fill, right-justified) | toggler */
+  .nav-contacts {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* xs (<576px): brand row 1, contacts row 2, toggler spans both rows on the right */
+@media (max-width: 575.98px) {
+  .navbar .container-fluid {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .navbar-brand {
+    order: 1;
+    flex: 1;
+  }
+  .navbar-toggler {
+    order: 3;
+    align-self: center;
+  }
+  .nav-contacts {
+    order: 2;
+    padding: 0.25rem 0;
+    justify-content: flex-end;
+  }
+
+  .nav-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: border-color var(--transition), color var(--transition);
+    flex-shrink: 0;
+  }
+  .nav-phone:hover { border-color: var(--accent); color: var(--accent); }
+
+  #telephone {
+    display: none;
   }
 }
 
