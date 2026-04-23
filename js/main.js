@@ -143,6 +143,56 @@ fadeEls.forEach((el) => observer.observe(el));
   });
 }());
 
+/* ─────────────────────────────────────────────
+   PRICE MODALS — Чистка / Ремонт
+───────────────────────────────────────────── */
+(function () {
+  function openModal(id) {
+    const overlay = document.getElementById(id);
+    if (!overlay) return;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(overlay) {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* Open buttons inside feature card */
+  document.querySelectorAll('.price-btn').forEach((btn) => {
+    btn.addEventListener('click', () => openModal(btn.dataset.modal));
+  });
+
+  /* Close on × button or overlay click */
+  document.querySelectorAll('.price-modal-overlay').forEach((overlay) => {
+    overlay.querySelector('.price-modal-close').addEventListener('click', () => closeModal(overlay));
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal(overlay);
+    });
+  });
+
+  /* Escape key */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.price-modal-overlay.open').forEach(closeModal);
+    }
+  });
+
+  /* Tab switching */
+  document.querySelectorAll('.price-modal-tabs').forEach((tabsEl) => {
+    tabsEl.addEventListener('click', (e) => {
+      const tab = e.target.closest('.pmt-tab');
+      if (!tab) return;
+      const modal = tabsEl.closest('.price-modal');
+      modal.querySelectorAll('.pmt-tab').forEach((t) => t.classList.remove('active'));
+      modal.querySelectorAll('.pmt-page').forEach((p) => p.classList.remove('active'));
+      tab.classList.add('active');
+      modal.querySelector('#' + tab.dataset.tab).classList.add('active');
+    });
+  });
+}());
+
 /* File upload label: update the visible text to list chosen file names */
 (function () {
   const input      = document.getElementById('shoeMedia');

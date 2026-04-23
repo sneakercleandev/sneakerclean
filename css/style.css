@@ -847,3 +847,275 @@ input[type="time"].fc-dark {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ═══════════════════════════════════════════
+   PRICE BUTTONS (inside feature card 3)
+════════════════════════════════════════════ */
+.price-btns {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.price-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 229, 190, 0.35);
+  border-radius: 50px;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.9rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.price-btn:hover {
+  background: rgba(0, 229, 190, 0.1);
+  border-color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════
+   PRICE MODALS
+════════════════════════════════════════════ */
+.price-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.price-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.price-modal {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 2rem 2rem 1.75rem;
+  transform: translateY(16px);
+  transition: transform 0.25s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-dim) transparent;
+}
+.price-modal-overlay.open .price-modal {
+  transform: translateY(0);
+}
+.price-modal::-webkit-scrollbar { width: 3px; }
+.price-modal::-webkit-scrollbar-thumb { background: var(--accent-dim); border-radius: 2px; }
+
+.price-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+.price-modal-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Tabs */
+.price-modal-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+.pmt-tab {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.pmt-tab:hover {
+  border-color: rgba(0, 229, 190, 0.4);
+  color: var(--text-primary);
+}
+.pmt-tab.active {
+  background: rgba(0, 229, 190, 0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Pages */
+.pmt-page { display: none; }
+.pmt-page.active { display: block; }
+
+/* Urgent badge */
+.pmt-badge {
+  display: inline-block;
+  background: rgba(220, 53, 69, 0.12);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 50px;
+  color: #e05a67;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Title */
+.pmt-title {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin: 0 0 1.25rem;
+  text-transform: uppercase;
+}
+.pmt-subtitle {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  text-transform: none;
+  display: block;
+}
+
+/* Price row */
+.pmt-prices {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.pmt-prices-3 { gap: 1rem; }
+
+.pmt-price-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.pmt-price-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.pmt-currency {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+.pmt-shoe-icon {
+  font-size: 2rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+.pmt-shoe-high { font-size: 2.4rem; }
+.pmt-price-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+/* Sections */
+.pmt-section { margin-bottom: 1.25rem; }
+.pmt-section-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+/* Lists */
+.pmt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pmt-list li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.55;
+}
+.pmt-list li:last-child { border-bottom: none; }
+.pmt-list strong { color: var(--text-primary); }
+
+.pmt-list-repair li { padding: 0.45rem 0; }
+
+.pmt-unit {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.pmt-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.pmt-sub-item {
+  display: inline-block;
+  padding-left: 1rem;
+  font-size: 0.8rem;
+}
+
+/* Promo line */
+.pmt-promo {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 0.6rem;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 229, 190, 0.05);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pmt-accent { color: var(--accent); }
+
+/* Footer note */
+.pmt-footer-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 400px) {
+  .price-modal { padding: 1.5rem 1.25rem; }
+  .pmt-prices { gap: 0.75rem; }
+  .pmt-price-val { font-size: 1.6rem; }
+}

@@ -125,9 +125,11 @@
                 <i class="bi bi-truck"></i>
               </div>
               <div class="feature-body">
-                <h3 class="feature-title">Бесплатная доставка</h3>
+                <h3 class="feature-title">Забор / доставка заказов</h3>
                 <p class="feature-desc">
-                  Заберём и доставим обувь бесплатно в день заказа в пределах Минска.
+                  Вторник > 17:30 - 19:30 (Октябрьский район)<br>
+                  Среда > 17:30 - 19:30 (Ленинский район)<br>
+                  Суббота > 10:00 - 14:00 (Октябрьский / Ленинский район)<br>
                 </p>
               </div>
             </div>
@@ -140,7 +142,7 @@
               <div class="feature-body">
                 <h3 class="feature-title">Точно в срок</h3>
                 <p class="feature-desc">
-                  Работа занимает от 1 до 5 дней.
+                  Работа занимает от 3 до 10 дней.
                 </p>
               </div>
             </div>
@@ -151,11 +153,15 @@
                 <i class="bi bi-currency-dollar"></i>
               </div>
               <div class="feature-body">
-                <h3 class="feature-title">Демократичные цены</h3>
+                <h3 class="feature-title">Виды и стоимость работ</h3>
                 <p class="feature-desc">
                   Одни из самых низких цен в Беларуси. Стоимость фиксированная и не зависит
                   от степени загрязнения. Оплата после выполнения работы.
                 </p>
+                <div class="price-btns">
+                  <button class="price-btn" data-modal="modalChistka">Чистка</button>
+                  <button class="price-btn" data-modal="modalRemont">Ремонт</button>
+                </div>
               </div>
             </div>
 
@@ -520,6 +526,186 @@
     </div>
   </footer>
 
+
+  <!-- ═══════════════════════════════════════════
+       PRICE MODALS
+  ════════════════════════════════════════════ -->
+
+  <!-- Чистка modal -->
+  <div class="price-modal-overlay" id="modalChistka" role="dialog" aria-modal="true" aria-label="Стоимость чистки">
+    <div class="price-modal">
+      <button class="price-modal-close" aria-label="Закрыть"><i class="bi bi-x-lg"></i></button>
+
+      <!-- Tabs -->
+      <div class="price-modal-tabs" role="tablist">
+        <button class="pmt-tab active" role="tab" data-tab="chistka-1">Спортивная обувь</button>
+        <button class="pmt-tab" role="tab" data-tab="chistka-2">Иная обувь</button>
+      </div>
+
+      <!-- Page 1: спортивная обувь -->
+      <div class="pmt-page active" id="chistka-1">
+        <div class="pmt-badge">чистка вне очереди (до 5 дней) +30% к чеку</div>
+        <h2 class="pmt-title">БАЗОВАЯ ЧИСТКА <span class="pmt-subtitle">спортивной обуви</span></h2>
+
+        <div class="pmt-prices">
+          <div class="pmt-price-item">
+            <span class="pmt-price-val">60<span class="pmt-currency">руб</span></span>
+            <i class="bi bi-boot pmt-shoe-icon" aria-hidden="true"></i>
+            <span class="pmt-price-label">средние</span>
+          </div>
+          <div class="pmt-price-item">
+            <span class="pmt-price-val">65<span class="pmt-currency">руб</span></span>
+            <i class="bi bi-boot pmt-shoe-icon pmt-shoe-high" aria-hidden="true"></i>
+            <span class="pmt-price-label">высокие</span>
+          </div>
+        </div>
+
+        <div class="pmt-section">
+          <p class="pmt-section-title">в комплекс входит:</p>
+          <ul class="pmt-list">
+            <li>чистка наружной поверхности;</li>
+            <li>чистка внутренней поверхности;</li>
+            <li>чистка промежуточной подошвы;</li>
+            <li>чистка стелек;</li>
+            <li>чистка шнурков;</li>
+            <li>деликатная сушка;</li>
+            <li>восстановление формы обуви;</li>
+          </ul>
+        </div>
+
+        <div class="pmt-section">
+          <p class="pmt-section-title">дополнительные услуги к чистке:</p>
+          <ul class="pmt-list">
+            <li>обработка водоотталкивающей пропиткой ············ от <strong>10р</strong> за пару</li>
+          </ul>
+          <p class="pmt-promo">при <span class="pmt-accent">единовременной сдачи от 2‑х пар</span> — водоотталикающая обработка <span class="pmt-accent">в подарок</span></p>
+        </div>
+
+        <p class="pmt-footer-note">Услуги выполняются при полной предоплате</p>
+      </div>
+
+      <!-- Page 2: иная обувь -->
+      <div class="pmt-page" id="chistka-2">
+        <div class="pmt-badge">чистка вне очереди (до 5 дней) +30% к чеку</div>
+        <h2 class="pmt-title">БАЗОВАЯ ЧИСТКА <span class="pmt-subtitle">иной обуви</span></h2>
+
+        <div class="pmt-prices pmt-prices-3">
+          <div class="pmt-price-item">
+            <span class="pmt-price-val">60<span class="pmt-currency">руб</span></span>
+            <i class="bi bi-boot pmt-shoe-icon" aria-hidden="true"></i>
+            <span class="pmt-price-label">низкие</span>
+          </div>
+          <div class="pmt-price-item">
+            <span class="pmt-price-val">65<span class="pmt-currency">руб</span></span>
+            <i class="bi bi-boot pmt-shoe-icon" aria-hidden="true"></i>
+            <span class="pmt-price-label">средние</span>
+          </div>
+          <div class="pmt-price-item">
+            <span class="pmt-price-val">от 70<span class="pmt-currency">руб</span></span>
+            <i class="bi bi-boot pmt-shoe-icon pmt-shoe-high" aria-hidden="true"></i>
+            <span class="pmt-price-label">высокие</span>
+          </div>
+        </div>
+
+        <div class="pmt-section">
+          <p class="pmt-section-title">в комплекс входит:</p>
+          <ul class="pmt-list">
+            <li>чистка наружной поверхности;</li>
+            <li>чистка внутренней поверхности;</li>
+            <li>чистка промежуточной подошвы;</li>
+            <li>чистка стелек;</li>
+            <li>чистка шнурков;</li>
+            <li>деликатная сушка;</li>
+            <li>восстановление формы обуви;</li>
+          </ul>
+        </div>
+
+        <div class="pmt-section">
+          <p class="pmt-section-title">дополнительные услуги к чистке:</p>
+          <ul class="pmt-list">
+            <li>удаление солевых пятен ·· <strong>30р</strong> за пару</li>
+            <li>обработка водоотталкивающей пропиткой ············ от <strong>10р</strong> за пару</li>
+          </ul>
+          <p class="pmt-promo">при <span class="pmt-accent">единовременной сдачи от 2‑х пар</span> — водоотталикающая обработка <span class="pmt-accent">в подарок</span></p>
+        </div>
+
+        <p class="pmt-footer-note">Услуги выполняются при полной предоплате</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Ремонт modal -->
+  <div class="price-modal-overlay" id="modalRemont" role="dialog" aria-modal="true" aria-label="Стоимость ремонта">
+    <div class="price-modal">
+      <button class="price-modal-close" aria-label="Закрыть"><i class="bi bi-x-lg"></i></button>
+
+      <!-- Tabs -->
+      <div class="price-modal-tabs" role="tablist">
+        <button class="pmt-tab active" role="tab" data-tab="remont-1">Ремонтные работы I</button>
+        <button class="pmt-tab" role="tab" data-tab="remont-2">Ремонтные работы II</button>
+      </div>
+
+      <!-- Page 1 -->
+      <div class="pmt-page active" id="remont-1">
+        <h2 class="pmt-title">Перечень ремонтных работ</h2>
+        <ul class="pmt-list pmt-list-repair">
+          <li>Замена сетчатых/кож./замш. вставок ····· от <strong>40р</strong> <span class="pmt-unit">(пара)</span><br><span class="pmt-note">услуга выполняется только после чистки пары</span></li>
+          <li>Прошивка верха ···················· <strong>10р</strong> <span class="pmt-unit">(за каждые 5 см)</span><br><span class="pmt-note">услуга выполняется только после чистки пары</span></li>
+          <li>Подклейка ························· от <strong>10р</strong> <span class="pmt-unit">(за каждые 5 см)</span><br><span class="pmt-note">услуга выполняется только после чистки пары</span></li>
+          <li>Укрепляющая деталь внутренняя ···· от <strong>40р</strong> <span class="pmt-unit">(шт)</span></li>
+          <li>Укрепляющая деталь наружная ······ от <strong>40р</strong> <span class="pmt-unit">(шт)</span><br><span class="pmt-note">услуга выполняется только после чистки пары</span></li>
+          <li>Ремонт задников ·················· от <strong>60р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Замена вкладных стелек (муж.) ···· <strong>30р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Замена вкладных стелек (жен.) ···· <strong>25р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Переклейка подошвы ················ от <strong>30р</strong> <span class="pmt-unit">(пара)</span><br><span class="pmt-note">услуга выполняется только после чистки подошвы</span></li>
+          <li>Частичная прошивка подошвы ········ от <strong>30р</strong> <span class="pmt-unit">(пара)</span><br><span class="pmt-note">услуга выполняется только после чистки подошвы</span></li>
+          <li>
+            Прошивка подошвы по периметру:<br>
+            <span class="pmt-sub-item">до 38-го размера ········ <strong>40р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">до 42-го размера ········ <strong>50р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">более 42-го размера ···· <strong>60р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-note">услуга выполняется только после чистки подошвы</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="pmt-page" id="remont-2">
+        <h2 class="pmt-title">Перечень ремонтных работ</h2>
+        <ul class="pmt-list pmt-list-repair">
+          <li>Установка следа на всю поверхность подошвы ·· <strong>70–140р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Замена подошвы ···················· <strong>120–170р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Замена набоек из ПУ ················ <strong>28–48р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Замена набоек из металла ·········· <strong>28р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>
+            Установка профилактик:<br>
+            <span class="pmt-sub-item">мужская обувь ··········· <strong>50–56р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">женская обувь ··········· <strong>40–60р</strong> <span class="pmt-unit">(пара)</span></span>
+          </li>
+          <li>Установка каблуков (муж.) ········· <strong>80р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Замена пластиковых каблуков ········ <strong>100р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Обтяжка жен. каблуков ·············· <strong>100р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>Укрепление каблуков ················ <strong>40р</strong> <span class="pmt-unit">(пара)</span></li>
+          <li>
+            Замена супинатора:<br>
+            <span class="pmt-sub-item">в открытой обуви ········ <strong>60р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">в обуви без молний ······ <strong>80р</strong> <span class="pmt-unit">(пара)</span></span>
+          </li>
+          <li>Замена бегунков металлических ····· <strong>10р</strong> <span class="pmt-unit">(шт)</span></li>
+          <li>
+            Замена молний:<br>
+            <span class="pmt-sub-item">до 15 см ················ <strong>28р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">до 25 см ················ <strong>32р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">до 35 см ················ <strong>36р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">до 45 см ················ <strong>40р</strong> <span class="pmt-unit">(пара)</span></span><br>
+            <span class="pmt-sub-item">более 45 см ············· <strong>44р</strong> <span class="pmt-unit">(пара)</span></span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
