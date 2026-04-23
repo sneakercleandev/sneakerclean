@@ -5,6 +5,7 @@
   --bg:          #0b0b0b;
   --bg-2:        #111111;
   --bg-card:     #161616;
+  --bg-img-card: #fbfbfb;
   --accent:      #00e5be;
   --accent-dim:  #00b899;
   --text-primary:   #f0f0f0;
@@ -469,7 +470,7 @@ a { text-decoration: none; color: inherit; }
    CSS sets the minimum so layout works before JS runs. */
 .ex-card {
   flex-shrink: 0;
-  background: var(--bg-card);
+  background: var(--bg-img-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -486,7 +487,7 @@ a { text-decoration: none; color: inherit; }
   aspect-ratio: 3 / 4;
   object-fit: contain;
   display: block;
-  background: var(--bg-card);
+  background: var(--bg-img-card);
   cursor: zoom-in;
 }
 
