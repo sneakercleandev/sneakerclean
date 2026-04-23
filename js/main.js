@@ -95,7 +95,7 @@ fadeEls.forEach((el) => observer.observe(el));
     timer = setInterval(() => {
       const maxIndex = total - visibleCount();
       goTo(current >= maxIndex ? 0 : current + 1);
-    }, 3000);
+    }, 2500);
   }
   function stopTimer()    { clearInterval(timer); }
   function restartTimer() { stopTimer(); startTimer(); }
