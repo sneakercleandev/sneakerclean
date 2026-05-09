@@ -259,7 +259,7 @@ fadeEls.forEach((el) => observer.observe(el));
   const submitBtn = form ? form.querySelector('[type="submit"]') : null;
   if (!form) return;
 
-  const API_URL = 'https://localhost:7182/api/order'; // local backend endpoint
+  const API_URL = 'http://sneakerclean.runasp.net/api/orders'; // local backend endpoint
 
   /* ── Toast helper ── */
   let toastEl = null;
