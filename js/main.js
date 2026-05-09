@@ -260,6 +260,7 @@ fadeEls.forEach((el) => observer.observe(el));
   if (!form) return;
 
   const API_URL = 'http://sneakerclean.runasp.net/api/orders'; // local backend endpoint
+  const API_URL = 'https://sneakerclean.runasp.net/api/orders'; // local backend endpoint
 
   /* ── Toast helper ── */
   let toastEl = null;
